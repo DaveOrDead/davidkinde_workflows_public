@@ -27,8 +27,10 @@ export default {
         
         console.log('stakeRes', res);
         kinde.accessToken.setCustomClaim('sport', res.json.data[0].name);
+
+        kinde.idToken.setCustomClaim('sport', res.json.data[1].name);
         
-        return 'testing add user token claim';
+        return 'testing add user tokens claim';
     },
 
 }
