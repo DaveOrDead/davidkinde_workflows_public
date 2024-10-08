@@ -17,8 +17,7 @@ export const workflowSettings = {
 
 export default {
     async handle(event: any) {
-        kinde.idToken.setCustomClaim('random', 'test');
-         const timeResponse = await kinde.fetch(
+         const res = await kinde.fetch(
               'https://api.stakesocial.com/v1/get_sports',
               {
                 method: 'GET',
@@ -26,8 +25,8 @@ export default {
               }
         );
         
-        console.log('timeResponse', timeResponse);
-        //kinde.idToken.setCustomClaim('sport', timeResponse.json.data[0].name);
+        console.log('stakeRes', res);
+        kinde.accessToken.setCustomClaim('sport', res.json.data[0].name);
         
         return 'testing add user token claim';
     },
