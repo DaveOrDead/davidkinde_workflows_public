@@ -3,7 +3,16 @@ import {hello} from "./hello"
 export const workflowSettings = {
     id: 'addUserTokenClaim',
     trigger: 'user:tokens_generation',
-    resetClaims: true
+    bindings: {
+        console: {},
+        'kinde.fetch': {},
+        'kinde.idToken': {
+            resetClaims: true
+        },
+        'kinde.accessToken': {
+            resetClaims: true
+        }
+    }
 };
 
 export default {
