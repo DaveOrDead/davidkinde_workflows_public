@@ -19,18 +19,15 @@ export default {
     async handle(event: any) {
         kinde.idToken.setCustomClaim('random', 'test');
          const timeResponse = await kinde.fetch(
-        'https://worldtimeapi.org/api/timezone/Etc/UTC',
-        {
-            method: 'GET',
-            responseFormat: 'json',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            }
-        }
-    );
-    console.log('timeResponse', timeResponse.json);
-        kinde.idToken.setCustomClaim('time', timeResponse.json);
+              'https://api.stakesocial.com/v1/get_sports',
+              {
+                method: 'GET',
+                responseFormat: 'json'
+              }
+        );
+        
+        console.log('timeResponse', timeResponse.data);
+        kinde.idToken.setCustomClaim('sport', timeResponse.data[0].name);
         
         return 'testing add user token claim';
     },
