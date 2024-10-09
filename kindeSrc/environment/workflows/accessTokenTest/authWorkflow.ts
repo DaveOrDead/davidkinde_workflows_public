@@ -16,7 +16,6 @@ export default {
 
         
         console.log("hello world");
-        kinde.accessToken.setCustomClaim('sport', res.json.data[0].name);
         console.log("hello world 2");
         kinde.m2mToken.setCustomClaim('chicken', 'egg');
         
