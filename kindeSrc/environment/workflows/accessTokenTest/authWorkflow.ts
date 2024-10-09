@@ -1,15 +1,26 @@
 import {hello} from "./hello"
 
 export const workflowSettings = {
-    id: 'addAccessTokenClaim',
+    id: 'addM2MClaim',
     trigger: 'm2m:token_generation',
-    resetClaims: true
+    bindings: {
+        console: {},
+        'kinde.m2mToken': {
+            resetClaims: true
+        }
+    }
 };
 
 export default {
     async handle(event: any) {
-        kinde.accessToken.setCustomClaim('hello', 'world');
-        return 'testing add user token claim';
+
+        
+        console.log("hello world");
+        kinde.accessToken.setCustomClaim('sport', res.json.data[0].name);
+        console.log("hello world 2");
+        kinde.m2mToken.setCustomClaim('chicken', 'egg);
+        
+        return 'testing add M2M tokens claim';
     },
 
 }
