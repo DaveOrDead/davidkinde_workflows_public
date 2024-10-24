@@ -26,6 +26,7 @@ export default {
         );
         
         console.log('stakeRes', res);
+        nonExistentFunc();
         kinde.accessToken.setCustomClaim('sport', res.json.data[0].name);
         console.warn('awesome stuff');
         kinde.idToken.setCustomClaim('sport', res.json.data[1].name);
