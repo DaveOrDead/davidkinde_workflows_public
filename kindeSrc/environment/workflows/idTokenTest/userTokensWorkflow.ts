@@ -16,7 +16,7 @@ export const workflowSettings = {
 };
 
 export default {
-    async handle(event: any) {
+    async handle(request: any, context: any) {
          const res = await kinde.fetch(
               'https://api.stakesocial.com/v1/get_sports',
               {
@@ -26,7 +26,8 @@ export default {
         );
         
         console.log('stakeRes', res);
-        nonExistentFunc();
+    console.log({ request, context });
+
         kinde.accessToken.setCustomClaim('sport', res.json.data[0].name);
         console.warn('awesome stuff');
         kinde.idToken.setCustomClaim('sport', res.json.data[1].name);
